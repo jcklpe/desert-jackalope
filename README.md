@@ -1,2 +1,2 @@
 # desert-jackalope
-minamalist theme built in React for Wordpress using Frontity
+minimalist theme built in React for Wordpress using Frontity
