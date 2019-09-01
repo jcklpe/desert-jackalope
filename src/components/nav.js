@@ -3,7 +3,7 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 
 const Nav = ({ state }) => (
-  <Container>
+  <Container className="nav-container">
     {state.theme.menu.map(([name, link]) => (
       <Item key={name} isSelected={state.router.link === link}>
         <Link link={link}>{name}</Link>
@@ -28,8 +28,7 @@ const Container = styled.nav`
 const Item = styled.div`
   padding: 0;
   margin: 0 16px;
-  color: ${({ isSelected }) =>
-    isSelected ? "rgba(10, 30, 30, 1)" : "rgba(10, 30, 30, 0.7)"};
+  color: ${({ isSelected }) => (isSelected ? "white" : "white")};
   font-size: 0.9em;
   box-sizing: border-box;
   flex-shrink: 0;
@@ -37,10 +36,9 @@ const Item = styled.div`
   & > a {
     display: inline-block;
     line-height: 2em;
-    border-bottom: 2px solid
-      ${({ isSelected }) =>
-        isSelected ? "rgba(10, 30, 30, 1)" : "transparent"};
-    margin-bottom: 25px;
+    // border-bottom: 2px solid
+    //   ${({ isSelected }) => (isSelected ? "white" : "transparent")};
+    // margin-bottom: 25px;
   }
 
   &:first-of-type {

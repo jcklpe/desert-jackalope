@@ -17,6 +17,22 @@ const globalStyles = css`
     color: inherit;
     text-decoration: none;
   }
+
+  .content-container {
+    background-color: #efedec;
+  }
+
+  .full-header-container {
+    display: inline-grid;
+    grid-template-columns: 1fr auto;
+    width: 100%;
+  }
+
+  .header-container {
+  }
+
+  .nav-container {
+  }
 `;
 
 const Theme = ({ state }) => {
@@ -30,7 +46,7 @@ const Theme = ({ state }) => {
         <html lang="en" />
       </Head>
       <Global styles={globalStyles} />
-      <HeadContainer>
+      <HeadContainer className="full-header-container">
         <Header />
       </HeadContainer>
       <Body>
@@ -49,6 +65,7 @@ const HeadContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: #1e9ff2;
 `;
 
 const Body = styled.div`

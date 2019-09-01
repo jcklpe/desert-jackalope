@@ -5,7 +5,7 @@ import Nav from "./nav";
 
 const Header = ({ state }) => (
   <>
-    <Container>
+    <Container className="header-container">
       <StyledLink link="/">
         <Title>{state.frontity.title}</Title>
       </StyledLink>
@@ -22,7 +22,7 @@ const Container = styled.div`
   max-width: 100%;
   box-sizing: border-box;
   padding: 24px;
-  color: rgba(10, 30, 30, 1);
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -35,7 +35,7 @@ const Title = styled.h2`
 
 const Description = styled.h4`
   margin: 0;
-  color: rgba(10, 30, 30, 0.7);
+  color: white;
 `;
 
 const StyledLink = styled(Link)`
