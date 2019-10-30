@@ -6,8 +6,8 @@ const before = ({ libraries }) => {
   libraries.html2react.processors.push(image);
 };
 
-const labsWebsite = {
-  name: "labs-website",
+const myWebsite = {
+  name: "desert-jackalope",
   roots: {
     theme: Theme
   },
@@ -28,4 +28,4 @@ const labsWebsite = {
   }
 };
 
-export default labsWebsite;
+export default myWebsite;
