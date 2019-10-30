@@ -1,39 +1,12 @@
 import React from "react";
 import { Global, css, connect, styled, Head } from "frontity";
-import Header from "./header";
-import List from "./list";
-import Post from "./post";
+import Header from "./header.js";
+import Archive from "./Archive";
+import Post from "./post.js";
 import Page404 from "./page404.js";
-import Loading from "./loading";
-
-const globalStyles = css`
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-  a,
-  a:visited {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .content-container {
-    background-color: #efedec;
-  }
-
-  .full-header-container {
-    display: inline-grid;
-    grid-template-columns: 1fr auto;
-    width: 100%;
-  }
-
-  .header-container {
-  }
-
-  .nav-container {
-  }
-`;
+import Loading from "./loading.js";
+import Page from "./Page/Page.js";
+import { media } from "./utilities/mixins";
 
 const Theme = ({ state }) => {
   const data = state.source.get(state.router.link);
@@ -45,32 +18,39 @@ const Theme = ({ state }) => {
         <meta name="description" content={state.frontity.description} />
         <html lang="en" />
       </Head>
+
       <Global styles={globalStyles} />
-      <HeadContainer className="full-header-container">
-        <Header />
-      </HeadContainer>
-      <Body>
-        {data.isFetching && <Loading />}
-        {data.isArchive && <List />}
-        {data.isPostType && <Post />}
-        {data.is404 && <Page404 />}
-      </Body>
+
+      <Header />
+
+      {data.isFetching && <Loading />}
+      {data.isArchive && <Archive />}
+      {(data.isPage && <Page />) || (data.isPostType && <Post />)}
+      {data.is404 && <Page404 />}
     </>
   );
 };
 
 export default connect(Theme);
+//- GLOBAL STYLES CSS
+const globalStyles = css`
+  @import url("https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i&display=swap");
 
-const HeadContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #1e9ff2;
-`;
+  :root {
+    --primary: #1f38c5;
+    --snappy: cubic-bezier(0.075, 0.82, 0.165, 1);
+    --heavy-snap: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  }
 
-const Body = styled.div`
-  display: flex;
-  justify-content: center;
-  background-image: url(\"https://imgur.com/hSIaeYy.png\"
-  );
+  body {
+    margin: 0;
+    font-family: "Space Mono", "Segoe UI", Roboto, "Droid Sans",
+      "Helvetica Neue", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+  }
+  a,
+  a:visited {
+    color: inherit;
+    text-decoration: none;
+  }
 `;

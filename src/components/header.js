@@ -2,42 +2,43 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import Nav from "./nav";
+// import * as palette from "./utilities/variables";
 
 const Header = ({ state }) => (
-  <>
-    <Container className="header-container">
-      <StyledLink link="/">
-        <Title>{state.frontity.title}</Title>
-      </StyledLink>
-      <Description>{state.frontity.description}</Description>
-    </Container>
+  <Container>
+    <HomeLogo className="home-logo" link="/">
+      {state.frontity.title}
+    </HomeLogo>
     <Nav />
-  </>
+  </Container>
 );
 
 export default connect(Header);
 
-const Container = styled.div`
+const Container = styled.header`
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
   padding: 24px;
-  color: white;
+  color: black;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 
-const Title = styled.h2`
-  margin: 0;
-  margin-bottom: 16px;
-`;
+const HomeLogo = styled(Link)`
+  white-space: nowrap;
+  color: black;
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  transition: all 0.15s var(--heavy-snap);
+  border-bottom: 3px solid transparent;
+  padding: 0.1em 0.25em 0 0.25em;
+  margin: auto 0.25em;
+  display: inline;
 
-const Description = styled.h4`
-  margin: 0;
-  color: white;
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
+  &:hover {
+    border-bottom: 3px solid var(--primary);
+    transition: all 0.15s var(--heavy-snap);
+  }
 `;

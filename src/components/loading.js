@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "frontity";
-import Loader from "react-spinners/ScaleLoader";
+import Loader from "react-spinners/MoonLoader";
+// Scale Loader was originally used
 
 const Loading = () => (
   <Container>
@@ -17,10 +18,11 @@ const Loading = () => (
 export default Loading;
 
 const Container = styled.div`
-  width: 800px;
-  margin: 0;
+  margin: 20vh 20vw 100px;
   padding: 24px;
+  text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 

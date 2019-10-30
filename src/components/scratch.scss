@@ -1,0 +1,311 @@
+article {
+
+    margin: 0;
+    padding: 24px 0px;
+    z-index: 5;
+    position: relative;
+    background: white;
+    color: rgba(12, 17, 43, 0.8);
+    word-break: break-word;
+
+    &::before {
+        /* height: 300px; */
+        width: 100%;
+        padding: 150px 30vw 150px 33vw;
+        margin: -300px 17vw 0 17vw;
+        z-index: 3;
+        background: white;
+        position: relative;
+        top: -150px;
+        z-index: -1;
+        content: "";
+    }
+
+    * {
+        max-width: 100%;
+        position: relative;
+    }
+
+    &>* {
+        position: relative;
+    }
+
+    h2 {
+        margin: 30px 21vw 0;
+        padding: 0 5px;
+    }
+
+    h3 {
+        margin: 30px 21.5vw 0;
+        padding: 0 5px;
+    }
+
+    h4 {
+        margin: 30px 21.9vw 0;
+        padding: 0 5px;
+    }
+
+    p {
+        line-height: 1.6em;
+        margin: 30px 20vw 0;
+        padding: 0 50px;
+    }
+
+    a {
+        background-image: linear-gradient(45deg, #1f38c5 29%, #7200ff 100%);
+        background-repeat: no-repeat;
+        background-size: 120% 0.2em;
+        background-position: -5px 100%;
+        color: black;
+        transition: all 0.25s 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+        border-bottom: 1px solid #1f38c5;
+        padding: 0.1em 0.25em 0 0.25em;
+
+        &:hover {
+            background-size: 120% 88%;
+            color: white;
+        }
+    }
+
+    ul {
+        margin: 30px 25vw 0;
+    }
+
+    ol {
+        margin: 30px 25vw 0;
+    }
+
+    hr {
+        margin-top: 50px;
+    }
+
+    img {
+        /* width: 100%; */
+        object-fit: cover;
+        object-position: center;
+        margin-bottom: 0 !important;
+    }
+
+    /* //- IMAGE GALLERY STUFF */
+    ul.wp-block-gallery {
+        list-style-type: none;
+        margin: 30px 0 0 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        li.blocks-gallery-item {
+            margin: unset;
+            display: inline;
+
+            figure {
+                margin: unset;
+                display: inline;
+                padding: 0;
+            }
+        }
+
+        &.columns-4 {
+            .blocks-gallery-item {
+                margin: unset;
+
+                figure {
+                    img {
+                        max-width: 24vw;
+                    }
+                }
+            }
+        }
+    }
+
+    /*end of image gallery stuff*/
+
+    /* //- Media embeds */
+    .wp-block-embed-vimeo,
+    .sketchfab-embed-wrapper,
+    .wp-block-embed-youtube {
+        display: flex;
+        margin: 25px 0 50px 0;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background: black;
+        padding: 1.5vw;
+        height: 70vh;
+        margin: 75px 0;
+        padding: 0;
+        max-width: 100vw;
+
+        .wp-block-embed__wrapper {
+            height: 100%;
+            width: 100%;
+        }
+
+
+        /*iframe embed*/
+        iframe {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+
+            #document {
+
+                body {
+                    #player.player {
+                        div.vp-player.js-playerLayout {
+                            position: static !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* end of media embeds */
+
+
+    /* //- legacy embeds for youtube */
+    iframe {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        margin: 0;
+
+
+        #document {
+
+            body {
+                #player.player {
+                    div.vp-player.js-playerLayout {
+                        position: static !important;
+                    }
+                }
+            }
+        }
+    }
+
+    /*//- Post formatting elements */
+
+    blockquote {
+        background-color: rgba(0, 0, 0, 0.1);
+        border-left: 4px solid rgba(12, 17, 43);
+        padding: 4px 16px;
+        margin: 30px 22vw 0;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    pre.wp-block-code {
+        margin: 30px 22vw 0;
+    }
+
+    aside,
+    .notice,
+    .wp-block-atomic-blocks-ab-notice {
+        padding: 50px;
+        margin: 25px 0 50px 0;
+        margin: 30px 20vw 0;
+        border-right: black 2px solid;
+
+        p {
+            font-style: italic;
+            margin: unset;
+        }
+
+        .ab-notice-title {
+            margin: 0 0 25px -25px;
+            font-weight: 700;
+            font-style: italic;
+        }
+    }
+
+    /* WordPress Core Align Classes */
+    /*    @media (min-width: 420px) {*/
+
+
+    img.aligncenter,
+    img.alignleft,
+    img.alignright {
+        width: auto;
+    }
+
+    figure.alignright {
+        float: right;
+    }
+
+    figure.alignleft {
+        float: left;
+    }
+
+    figure.aligncenter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    div.wp-block-image {
+        /* display: flex;
+      justify-content: center;
+      align-items: center; */
+        /* margin: 50px !important; */
+        margin: 0;
+
+        figure {
+            /* margin: 30px 15vw 0; */
+            padding: 0 5px;
+            text-align: center;
+            max-width: unset !important;
+            width: unset !important;
+            margin: 10px 0 100px 0;
+
+            &.aligncenter {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100% !important;
+            }
+
+            &.alignright {
+                /* display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center; */
+                max-width: 30% !important;
+                /* margin: 50px 0; */
+                float: right;
+                margin-right: 10%;
+                margin-left: 50px;
+            }
+
+            &.alignleft {
+                /* display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center; */
+                max-width: 30% !important;
+                /* margin: 50px 0; */
+                float: left;
+                margin-left: 10%;
+            }
+        }
+
+        figcaption {
+            margin: unset;
+            font-size: 0.7em;
+            text-align: center;
+            max-width: 50%;
+            margin: auto;
+        }
+    }
+}
+
+
+
+/*}*/

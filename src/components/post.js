@@ -1,151 +1,545 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
-import Link from "./link";
-import List from "./list";
+// import Link from "./link";
+import Archive from "./Archive";
 import FeaturedMedia from "./featured-media";
-import "./styles.css";
+// import * as palette from "../utilities/variables.js";
+import { media } from "./utilities/mixins";
 
 const Post = ({ state, actions, libraries }) => {
   // Get info of current post.
   const data = state.source.get(state.router.link);
   // Get the the post.
   const post = state.source[data.type][data.id];
-  // Get the author.
-  const author = state.source.author[post.author];
-  // Get a date for humans.
-  const date = new Date(post.date);
 
-  // Prefetch home posts and the list component.
+  // Prefetch home posts and the archive component.
   useEffect(() => {
     actions.source.fetch("/");
-    List.preload();
+    Archive.preload();
   }, []);
 
   return data.isReady ? (
-    <Content>
-      {state.theme.featured.showOnPost && (
-        <FeaturedMedia id={post.featured_media} />
-      )}
-      <Container className="content-container">
-        <div>
-          <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-          {data.isPost && <div></div>}
-        </div>
+    <>
+      <FeaturedMedia id={post.featured_media} />
 
-        <Body>
-          <libraries.html2react.Component html={post.content.rendered} />
-        </Body>
-      </Container>
-    </Content>
+      <Article className="content-area">
+        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+
+        <libraries.html2react.Component html={post.content.rendered} />
+      </Article>
+    </>
   ) : null;
 };
 
 export default connect(Post);
 
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const Container = styled.div`
-  width: 850px;
-  margin: 0;
-  margin-top: -150px;
-  padding: 24px 50px;
-`;
+//- 𝗖𝗦𝗦
 
 const Title = styled.h1`
   margin: 0;
-  margin-top: 24px;
+  font-size: 2rem;
   margin-bottom: 8px;
   color: rgba(12, 17, 43, 1);
+  margin: -250px 20vw 0;
+  padding: 0 5px;
+  ${media.mobile`
+    margin: -100px 13vw 0;
+
+    `};
 `;
 
-const StyledLink = styled(Link)`
-  padding: 15px 0;
-`;
-
-const Author = styled.p`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-  display: inline;
-`;
-
-const Fecha = styled.p`
-  color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
-  display: inline;
-`;
-
-const Body = styled.div`
+const Article = styled.article`
+  margin: 0;
+  padding: 24px 0px;
+  z-index: 5;
+  position: relative;
+  background: white;
   color: rgba(12, 17, 43, 0.8);
   word-break: break-word;
 
   * {
     max-width: 100%;
+    position: relative;
+  }
+
+  & > * {
+    position: relative;
+  }
+  /*//- Article fake paper top */
+  &::before {
+    /* height: 300px; */
+    width: 100%;
+    padding: 150px 30vw 150px 33vw;
+    margin: -300px 17vw 0 17vw;
+    z-index: 3;
+    background: white;
+    position: relative;
+    top: -150px;
+    z-index: -1;
+    content: "";
+    ${media.mobile`
+    margin: -30px 10vw 0 10vw;
+    padding: 50px 40vw 50px 40vw;
+    top: -80px;
+    `};
+  }
+
+  /*//- Post formatting elements */
+
+  h2 {
+    margin: 30px 21vw 0;
+    padding: 0 5px;
+    ${media.mobile`
+    margin: 30px 13.5vw 0;
+    `};
+  }
+
+  h3 {
+    margin: 30px 21.5vw 0;
+    padding: 0 5px;
+    ${media.mobile`
+    margin: 30px 13.75vw 0;
+    `};
+  }
+
+  h4 {
+    margin: 30px 21.9vw 0;
+    padding: 0 5px;
+    ${media.mobile`
+    margin: 30px 13.85vw 0;
+    `};
   }
 
   p {
     line-height: 1.6em;
+    margin: 30px 20vw 0;
+
+    padding: 0 50px;
+    ${media.mobile`
+    margin: 30px 14vw 0;
+    padding: 0;
+    `};
+  }
+
+  ul {
+    margin: 30px 25vw 0;
+    ${media.mobile`
+    margin: 30px 14vw 0;
+    padding: 0;
+    `};
+  }
+
+  ol {
+    margin: 30px 25vw 0;
+    ${media.mobile`
+    margin: 30px 14vw 0;
+    padding: 0;
+    `};
+  }
+
+  hr {
+    margin-top: 50px;
   }
 
   img {
-    width: 100%;
+    /* width: 100%; */
     object-fit: cover;
     object-position: center;
+    margin-bottom: 0 !important;
   }
 
-  figure {
-    margin: 24px auto;
-    /* next line overrides an inline style of the figure element. */
-    width: 100% !important;
+  /*//- Links */
 
-    figcaption {
-      font-size: 0.7em;
+  p {
+    a {
+      background-image: linear-gradient(
+        45deg,
+        var(--primary) 29%,
+        #7200ff 100%
+      );
+      background-repeat: no-repeat;
+      background-size: 120% 0.2em;
+      background-position: -5px 100%;
+      color: black;
+      transition: all 0.25s 250ms var(--snappy);
+      border-bottom: 1px solid var(--primary);
+      padding: 0.1em 0.25em 0 0.25em;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-size: 120% 88%;
+        color: white;
+      }
     }
   }
 
-  iframe {
-    display: block;
-    margin: auto;
-  }
-
+  /*//- Block Quote */
   blockquote {
-    margin: 16px 0;
     background-color: rgba(0, 0, 0, 0.1);
     border-left: 4px solid rgba(12, 17, 43);
     padding: 4px 16px;
+    margin: 30px 22vw 0;
+    ${media.mobile`
+    margin: 30px 12vw 0;
+    padding: 6px 16px;
+    `};
+
+    p {
+      margin: 0;
+    }
+  }
+  /*//- Code Block */
+  pre.wp-block-code {
+    max-width: 100vw;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: justify;
+    margin: 30px 28vw 0;
+    padding: 25px 50px;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.15) 0.5em,
+        rgba(255, 255, 255, 0.05) 2em,
+        rgba(255, 255, 255, 0.05) 2em,
+        rgba(255, 255, 255, 0)
+      ),
+      linear-gradient(to bottom, #222, #222 50%, #000 50%, #000);
+    border-radius: 5px;
+
+    background-size: 100% 100%, 100% 2px;
+    color: white;
+    ${media.mobile`
+    margin: 30px 14vw 0;
+
+    `};
   }
 
-  a {
-    color: rgb(31, 56, 197);
-    text-decoration: underline;
+  /*//-  Notice/Aside */
+  aside,
+  .notice,
+  .wp-block-atomic-blocks-ab-notice {
+    padding: 50px;
+    margin: 30px 23vw 0;
+    border-left: black 6px solid;
+    ${media.mobile`
+    margin: 30px 4vw 0 0;
+    padding: 50px 30px 50px 40px;
+
+    `};
+    div.ab-notice-text {
+      margin: 0;
+    }
+    p {
+      font-style: italic;
+      margin: unset;
+    }
+
+    .ab-notice-title {
+      margin: 0 0 25px -25px;
+      font-weight: 700;
+      font-style: italic;
+    }
   }
 
-  /* WordPress Core Align Classes */
+  /*//-  legacy fix for hacky notice */
+  p.notice {
+    ${media.mobile`
+    margin: 30px 14vw 0;
+    padding: 50px;
+    `};
+  }
+  /* //- footnotes styling*/
+  section.wp-block-abt-footnotes {
+    ol {
+      list-style: none;
+    }
+    li {
+      margin: 0;
+    }
+    div {
+      margin: 0 15px 20px 15px;
+    }
+    div.abt-footnotes-item__marker {
+      position: absolute;
+      left: -40px;
+      font-size: 2em;
+    }
+  }
 
-  @media (min-width: 420px) {
-    img.aligncenter,
-    img.alignleft,
-    img.alignright {
-      width: auto;
+  /* //- IMAGE GALLERY STUFF */
+  ul.wp-block-gallery {
+    list-style-type: none;
+    margin: 30px 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    li.blocks-gallery-item {
+      margin: unset;
+      display: inline;
+
+      figure {
+        margin: unset;
+        display: inline;
+        padding: 0;
+      }
     }
 
-    .aligncenter {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+    &.columns-4 {
+      .blocks-gallery-item {
+        margin: unset;
+
+        figure {
+          img {
+            max-width: 24vw;
+          }
+        }
+      }
+    }
+    &.columns-5 {
+      .blocks-gallery-item {
+        margin: unset;
+
+        figure {
+          img {
+            max-width: 19vw;
+          }
+        }
+      }
+    }
+  }
+
+  /*end of image gallery stuff*/
+
+  /* //- Media embeds */
+  div.wp-block-embed__wrapper {
+    margin: 0 !important;
+  }
+  .wp-block-embed-vimeo,
+  .sketchfab-embed-wrapper,
+  .wp-block-embed-youtube {
+    display: flex;
+    margin: 25px 0 50px 0;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: black;
+    padding: 1.5vw;
+    height: 70vh;
+    margin: 75px 0;
+    padding: 0;
+    max-width: 100vw;
+
+    .wp-block-embed__wrapper {
+      height: 100%;
+      width: 100%;
     }
 
-    .alignright {
-      float: right;
-      margin-left: 24px;
+    /*iframe embed*/
+    iframe {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+
+      #document {
+        body {
+          #player.player {
+            div.vp-player.js-playerLayout {
+              position: static !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* end of media embeds */
+
+  /* //- legacy embeds for youtube */
+  iframe {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    margin: 0;
+
+    #document {
+      body {
+        #player.player {
+          div.vp-player.js-playerLayout {
+            position: static !important;
+          }
+        }
+      }
+    }
+  }
+  /* //- button */
+  div.wp-block-button.aligncenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+      padding: 10px 20px;
+    }
+  }
+
+  /* //- IMAGE STUFF */
+  img.aligncenter,
+  img.alignleft,
+  img.alignright {
+    width: auto;
+  }
+
+  figure.alignright {
+    float: right;
+    ${media.mobile`
+    float: none;
+    `};
+  }
+
+  figure.alignleft {
+    float: left;
+    ${media.mobile`
+    float: none;
+    `};
+  }
+
+  figure.aligncenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  /* //- Gutenberg compatible images */
+  div.wp-block-image {
+    margin: 0;
+
+    figure {
+      padding: 0 5px;
+      text-align: center;
+      max-width: unset !important;
+      width: unset !important;
+      margin: 50px 0 100px 0;
+
+      span {
+        padding-bottom: 10px !important;
+        img {
+          position: relative !important;
+        }
+      }
+
+      &.aligncenter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100% !important;
+        margin-bottom: 50px;
+      }
+
+      &.alignright {
+        max-width: 30% !important;
+        float: right;
+        margin-right: 10%;
+        margin-left: 50px;
+        ${media.mobile`
+          float: none !important;
+          margin: 20px 0 50px 0 !important;
+          max-width: 100vw !important;
+        `};
+      }
+
+      &.alignleft {
+        max-width: 30% !important;
+        float: left;
+        margin-left: 10%;
+        ${media.mobile`
+          float: none !important;
+          margin: 20px 0 50px 0 !important;
+          max-width: 100vw !important;
+        `};
+      }
     }
 
-    .alignleft {
-      float: left;
-      margin-right: 24px;
+    figcaption {
+      font-size: 0.7em;
+      text-align: center;
+      max-width: 50%;
+      margin: auto;
+      margin-top: 25px;
     }
+  }
+
+  /* //- legacy image stuff for frontity test blog */
+  figure {
+    display: flex;
+    justify-content: center;
+    justify-items: content;
+    flex-direction: column;
+    text-align: center;
+    max-width: unset !important;
+    width: unset !important;
+    margin: 10px 0 50px;
+
+    a {
+      span {
+        padding-bottom: 0px;
+        img {
+          position: relative;
+        }
+      }
+    }
+    span {
+      padding-bottom: 0px;
+      img {
+        position: relative;
+      }
+    }
+    figcaption {
+      text-align: center;
+    }
+  }
+  /* //- legacy image old jackalope.tech blog content*/
+  figure.wp-block-image.alignright.tad-smaller-40 {
+    float: right !important;
+    margin-left: 25px !important;
+    margin-right: 50px !important;
+    max-width: 39vw !important;
+    ${media.mobile`
+    float: none !important;
+    margin: 20px 0 50px 0 !important;
+    max-width: 100vw !important;
+    `};
+    figcaption {
+      margin-top: 20px;
+    }
+  }
+  figure.wp-block-image.alignleft {
+    width: unset !important;
+    margin: 10px 0 50px;
+    margin-left: 20vw;
+    margin-right: 25px;
+    ${media.mobile`
+    float: none !important;
+    margin: 20px 0 50px 0 !important;
+    max-width: 100vw !important;
+    `};
+  }
+  /* //- MISC legacy crap */
+
+  /* //HACK: this is just because of outdated frontity test blog content classes */
+  div {
+    line-height: 1.6em;
+    margin: 30px 20vw 0;
+    padding: 0 50px;
+    ${media.mobile`
+    margin: 30px 14vw 0;
+    padding: 0;
+    `};
   }
 `;

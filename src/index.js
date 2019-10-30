@@ -6,8 +6,8 @@ const before = ({ libraries }) => {
   libraries.html2react.processors.push(image);
 };
 
-const desertJackalope = {
-  name: "desert-jackalope",
+const labsWebsite = {
+  name: "labs-website",
   roots: {
     theme: Theme
   },
@@ -15,8 +15,8 @@ const desertJackalope = {
     theme: {
       menu: [],
       featured: {
-        showOnList: false,
-        showOnPost: false
+        showOnList: true,
+        showOnPost: true
       }
     }
   },
@@ -28,4 +28,4 @@ const desertJackalope = {
   }
 };
 
-export default desertJackalope;
+export default labsWebsite;

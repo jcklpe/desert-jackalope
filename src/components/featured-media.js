@@ -25,16 +25,12 @@ const FeaturedMedia = ({ state, id }) => {
       alt={media.title.rendered}
       src={media.source_url}
       srcSet={srcset}
+      className="featured-media"
     />
   );
 };
 
 export default connect(FeaturedMedia);
-
-const Container = styled.div`
-  margin-top: 16px;
-  height: 300px;
-`;
 
 const StyledImage = styled(Image)`
   display: block;
