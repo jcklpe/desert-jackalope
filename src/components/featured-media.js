@@ -2,7 +2,7 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Image from "@frontity/components/image";
 
-const FeaturedMedia = ({ state, id }) => {
+const FeaturedMedia = ({ state, id, data }) => {
   const media = state.source.attachment[id];
 
   if (!media) return null;
@@ -25,6 +25,7 @@ const FeaturedMedia = ({ state, id }) => {
       alt={media.title.rendered}
       src={media.source_url}
       srcSet={srcset}
+      height={300}
       className="featured-media"
     />
   );
@@ -37,4 +38,5 @@ const StyledImage = styled(Image)`
   height: 100%;
   width: 100%;
   object-fit: cover;
+  max-height: 100vh;
 `;

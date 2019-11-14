@@ -5,33 +5,28 @@ import Archive from "../Archive";
 import FeaturedMedia from "../featured-media";
 // import * as palette from "../utilities/variables.js";
 
-const Page = ({ state, actions, libraries }) => {
-  // Get info of current page.
-  const data = state.source.get(state.router.link);
-  // Get the the page.
+const Page = ({ state, actions, libraries, data }) => {
+  // Get info of current post.
+  //const data = state.source.get(state.router.link);
+  // Get the the post.
   const page = state.source[data.type][data.id];
+  // Get the html2react component.		  // Prefetch home posts and the list component.
+  const Html2React = libraries.html2react.Component;
 
-  // Prefetch home pages and the archive component.
+  // Prefetch home posts and the archive component.
   useEffect(() => {
     actions.source.fetch("/");
     Archive.preload();
   }, []);
 
   return data.isReady ? (
-    <Content>
-      {state.theme.featured.showOnPage && (
-        <FeaturedMedia id={page.featured_media} />
-      )}
-      <Container className="content-container">
-        <div>
-          <Title dangerouslySetInnerHTML={{ __html: page.title.rendered }} />
-          {data.isPage && <div></div>}
-        </div>
-        <Body>
-          <libraries.html2react.Component html={page.content.rendered} />
-        </Body>
-      </Container>
-    </Content>
+    <>
+      <Article className="content-area">
+        <Title dangerouslySetInnerHTML={{ __html: page.title.rendered }} />
+
+        <Html2React html={page.content.rendered} />
+      </Article>
+    </>
   ) : null;
 };
 
@@ -44,7 +39,7 @@ const Content = styled.div`
   align-items: center;
 `;
 
-const Container = styled.div`
+const Article = styled.article`
   width: 850px;
   margin: 0;
   /* margin-top: -150px; */

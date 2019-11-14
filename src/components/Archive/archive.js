@@ -5,9 +5,9 @@ import Pagination from "./pagination";
 import Hero from "../Hero/Hero";
 import { media } from "../utilities/mixins";
 
-const Archive = ({ state }) => {
+const Archive = ({ state, data }) => {
   // Get the data of the current archive.
-  const data = state.source.get(state.router.link);
+  //const data = state.source.get(state.router.link);
 
   return (
     <>
@@ -58,7 +58,7 @@ const Container = styled.section`
   }
 
   //- Case Study 1-3-5-7
-  section.case-study-link:nth-child(odd) {
+  section.case-study-link:nth-of-type(odd) {
     margin-right: 30vw;
     margin-left: 0;
 
@@ -98,7 +98,7 @@ const Container = styled.section`
     }
   }
   //- Case Study 2-4-6-8
-  section.case-study-link:nth-child(even) {
+  section.case-study-link:nth-of-type(even) {
     margin-left: 30vw;
     margin-right: 0;
     ${media.mobile`

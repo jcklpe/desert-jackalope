@@ -27,3 +27,11 @@ ${media.UHD`
 
 `};
 `;
+
+{
+  /* {data.isFetching && <Loading />}
+                {data.isArchive && <Archive />}
+                {(data.isPage && <Page />) || (data.isPostType && <Post />)}
+                {data.is404 && <Page404 />}
+                {data.content} */
+}
