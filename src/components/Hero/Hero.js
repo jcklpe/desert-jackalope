@@ -6,7 +6,7 @@ import { media } from "../utilities/mixins";
 
 const Hero = props => (
   <Container className="HeroWrapper">
-    <h1>Aslan French: Design Technologist</h1>
+    <h1>Exploration + Exposition</h1>
   </Container>
 );
 
