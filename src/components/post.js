@@ -49,9 +49,13 @@ const Title = styled.h1`
   margin: -250px 20vw 0;
   padding: 0 5px;
 
+  ${media.tablet`
+    margin: -250px 13.5vw 0;
+    `};
+
   ${media.mobile`
-margin: -100px 13vw 0;
-`};
+  margin: -100px 13vw 0;
+  `};
 `;
 
 const Article = styled.article`
@@ -66,6 +70,9 @@ const Article = styled.article`
   * {
     max-width: 100%;
     position: relative;
+    box-sizing: border-box;
+    /*//HACK: hidden is a sloppy way to fix this problem but I forget the proper way and sorting through SO is not my priority. Fix someday */
+    /* overflow-x: hidden; */
   }
 
   & > * {
@@ -76,8 +83,8 @@ const Article = styled.article`
   &::before {
     /* height: 300px; */
     width: 100%;
-    padding: 150px 30vw 150px 33vw;
-    margin: -300px 17vw 0 17vw;
+    padding: 150px 31.5vw 150px 31.5vw;
+    margin: -300px 18.5vw 0 18.5vw;
     z-index: 3;
     background: white;
     position: relative;
@@ -85,7 +92,14 @@ const Article = styled.article`
     z-index: -1;
     content: "";
 
-    ${media.mobile` margin: -30px 10vw 0 10vw;
+    ${media.tablet`
+    padding: 150px 40vw 150px 40vw;
+    margin: -300px 9vw 0 9vw;
+    top: -150px;
+    `};
+
+    ${media.mobile`
+    margin: -30px 10vw 0 10vw;
     padding: 50px 40vw 50px 40vw;
     top: -80px;
     `};
@@ -97,6 +111,10 @@ const Article = styled.article`
     margin: 30px 21vw 0;
     padding: 0 5px;
 
+    ${media.tablet`
+    margin: 30px 15vw 0;
+    `};
+
     ${media.mobile`
   margin: 30px 13.5vw 0;
   `};
@@ -105,6 +123,10 @@ const Article = styled.article`
   h3 {
     margin: 30px 21.5vw 0;
     padding: 0 5px;
+
+    ${media.tablet`
+    margin: 30px 15.25vw 0;
+    `};
 
     ${media.mobile`
   margin: 30px 13.75vw 0;
@@ -115,6 +137,10 @@ const Article = styled.article`
     margin: 30px 21.9vw 0;
     padding: 0 5px;
 
+    ${media.tablet`
+    margin: 30px 15.5vw 0;
+    `};
+
     ${media.mobile`
   margin: 30px 13.85vw 0;
   `};
@@ -123,11 +149,14 @@ const Article = styled.article`
   p {
     line-height: 1.6em;
     margin: 30px 20vw 0;
-
     padding: 0 50px;
 
+    ${media.tablet`
+    margin: 30px 12vw 0;
+    `};
+
     ${media.mobile`
-  margin: 30px 14vw 0;
+  margin: 20px 14vw 0;
     padding: 0;
     `};
   }
@@ -304,25 +333,189 @@ const Article = styled.article`
     justify-content: center;
     align-items: center;
 
-    &.columns-4 {
-      .blocks-gallery-item {
-        margin: unset;
+    &.columns-2 {
+      .blocks-gallery-grid {
+        margin: unset !important;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        max-height: 42vw;
 
-        figure {
-          img {
-            max-width: 24vw;
+        .blocks-gallery-item {
+          /* max-height: 49vw; */
+          margin: 10px;
+          figure {
+            /* max-height: 49vw; */
+            img {
+              max-width: 42vw;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+      &.is-cropped {
+        li {
+          object-fit: cover;
+          height: 49vw;
+          width: 49vw;
+          figure {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            img {
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    &.columns-3 {
+      .blocks-gallery-grid {
+        margin: unset !important;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: baseline;
+        .blocks-gallery-item {
+          margin: unset;
+
+          figure {
+            img {
+              max-width: 32vw;
+            }
+          }
+        }
+      }
+      &.is-cropped {
+        li {
+          object-fit: cover;
+          height: 32vw;
+          width: 32vw;
+          figure {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            img {
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    &.columns-4 {
+      .blocks-gallery-grid {
+        margin: unset !important;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: baseline;
+        .blocks-gallery-item {
+          margin: unset;
+
+          figure {
+            img {
+              max-width: 24vw;
+            }
+          }
+        }
+      }
+      &.is-cropped {
+        li {
+          object-fit: cover;
+          height: 24vw;
+          width: 24vw;
+          figure {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            img {
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
           }
         }
       }
     }
 
     &.columns-5 {
-      .blocks-gallery-item {
-        margin: unset;
+      .blocks-gallery-grid {
+        margin: unset !important;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: baseline;
+        .blocks-gallery-item {
+          margin: unset;
 
-        figure {
-          img {
-            max-width: 19vw;
+          figure {
+            img {
+              max-width: 19vw;
+            }
+          }
+        }
+      }
+      &.is-cropped {
+        li {
+          object-fit: cover;
+          height: 19vw;
+          width: 19vw;
+          figure {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            img {
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    &.columns-6 {
+      .blocks-gallery-grid {
+        margin: unset !important;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: baseline;
+        .blocks-gallery-item {
+          margin: 10px;
+          figure {
+            img {
+              /* max-width: 16vw; */
+            }
+          }
+        }
+      }
+      &.is-cropped {
+        li {
+          object-fit: cover;
+          height: 16vw;
+          width: 16vw;
+          figure {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            img {
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
           }
         }
       }
@@ -478,6 +671,7 @@ const Article = styled.article`
 
   .wp-block-image {
     margin: 25px 0 100px 0;
+    display: inline;
 
     &.alignfull {
       width: 100%;
@@ -504,6 +698,7 @@ const Article = styled.article`
 
       ${media.mobile`
       float: none !important;
+      width: 100%;
       margin: 20px 0 50px 0 !important;
       max-width: 100vw !important;
       `};
@@ -515,10 +710,10 @@ const Article = styled.article`
       margin-left: 5vw;
       z-index: 50;
       ${media.mobile`
-    float: none !important;
-    margin: 20px 0 50px 0 !important;
-    max-width: 100vw !important;
-    `};
+        float: none !important;
+        margin: 20px 0 50px 0 !important;
+        max-width: 100vw !important;
+      `};
     }
 
     figcaption {
@@ -527,6 +722,14 @@ const Article = styled.article`
       max-width: 50%;
       margin: auto;
       margin-top: 25px;
+    }
+
+    img {
+      ${media.tablet`
+
+      width: 100%;
+
+      `};
     }
   }
 

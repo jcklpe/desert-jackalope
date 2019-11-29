@@ -71,4 +71,7 @@ const globalStyles = css`
 const Absolute = styled.div`
   position: absolute;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;

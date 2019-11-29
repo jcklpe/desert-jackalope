@@ -1,66 +1,44 @@
-.wp-block-image {
-    margin: 0;
+figure.wp-block-gallery {
 
-    /* figure {
-      padding: 0 5px;
-      text-align: center;
-      max-width: unset !important;
-      width: unset !important;
-      margin: 50px 0 100px 0;
 
-      span {
-        padding-bottom: 10px !important;
-        img {
-          position: relative !important;
+  &.columns-6 {
+    .blocks-gallery-grid {
+      margin: unset !important;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+      align-items: baseline;
+
+      .blocks-gallery-item {
+        margin: 10px;
+
+        figure {
+          img {
+            /* max-width: 16vw; */
+          }
         }
-      } */
-
-    &.alignfull {
-      width: 100%;
-
-      .img {
-        width: 100%;
       }
     }
 
-    &.aligncenter {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100% !important;
-      margin-bottom: 50px;
-    }
+    &.is-cropped {
+      li {
+        object-fit: cover;
+        height: 16vw;
+        width: 16vw;
 
-    &.alignright {
-      max-width: 30% !important;
-      float: right;
-      margin-right: 10%;
-      margin-left: 50px;
-      ${media.mobile`
-          float: none !important;
-          margin: 20px 0 50px 0 !important;
-          max-width: 100vw !important;
-        `};
-    }
+        figure {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
 
-    &.alignleft {
-      max-width: 30% !important;
-      float: left;
-      margin-left: 10%;
-    //   ${media.mobile`
-          float: none !important;
-          margin: 20px 0 50px 0 !important;
-          max-width: 100vw !important;
-        `};
+          img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
     }
-
-
-    figcaption {
-      font-size: 0.7em;
-      text-align: center;
-      max-width: 50%;
-      margin: auto;
-      margin-top: 25px;
-    }
+  }
 }

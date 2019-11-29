@@ -27,11 +27,11 @@ const NavItem = styled(Link)`
   transition: all 0.25s 250ms var(--heavy-snap);
 
   border-bottom: ${({ isSelected }) =>
-    isSelected ? "3px solid var(--primary)" : "3px solid transparent"};
+    isSelected ? "3px solid white" : "3px solid transparent"};
   padding: 0.1em 0.25em 0 0.25em;
   margin: auto 0.25em;
   &:hover {
-    border-bottom: 3px solid var(--primary);
+    border-bottom: 3px solid white;
     transition: all 0.25s 250ms var(--heavy-snap);
   }
 `;

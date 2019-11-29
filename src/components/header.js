@@ -20,14 +20,15 @@ const Container = styled.header`
   max-width: 100%;
   box-sizing: border-box;
   padding: 24px;
-  color: black;
   display: flex;
   justify-content: space-between;
+  background: var(--primary);
+  color: white;
 `;
 
 const HomeLogo = styled(Link)`
   white-space: nowrap;
-  color: black;
+  color: white;
   display: block;
   font-size: 1.5em;
   font-weight: bold;
@@ -38,7 +39,7 @@ const HomeLogo = styled(Link)`
   display: inline;
 
   &:hover {
-    border-bottom: 3px solid var(--primary);
+    border-bottom: 3px solid white;
     transition: all 0.15s var(--heavy-snap);
   }
 `;

@@ -3,12 +3,12 @@ import { css } from "frontity";
 
 export const media = {
   mobile: (...args) => css`
-    @media (max-width: 575px) {
+    @media (max-width: 767px) {
       ${css(...args)};
     }
   `,
   tablet: (...args) => css`
-    @media (min-width: 768px) {
+    @media (max-width: 990px) {
       ${css(...args)};
     }
   `,

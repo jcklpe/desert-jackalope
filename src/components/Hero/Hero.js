@@ -6,13 +6,13 @@ import { media } from "../utilities/mixins";
 
 const Hero = props => (
   <Container className="HeroWrapper">
-    <h1>Exploration + Exposition</h1>
+    <h1>Design X Code</h1>
   </Container>
 );
 
 const Container = styled.div`
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: var(--primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,9 +29,5 @@ const Container = styled.div`
   `};
   }
 `;
-
-// const StyledLink = styled(Link)`
-//   text-decoration: none;
-// `;
 
 export default Hero;
