@@ -25,7 +25,7 @@ const FeaturedMedia = ({ state, id, data }) => {
       alt={media.title.rendered}
       src={media.source_url}
       srcSet={srcset}
-      height={300}
+      height={500}
       className="featured-media"
     />
   );
@@ -35,7 +35,7 @@ export default connect(FeaturedMedia);
 
 const StyledImage = styled(Image)`
   display: block;
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   object-fit: cover;
   max-height: 100vh;

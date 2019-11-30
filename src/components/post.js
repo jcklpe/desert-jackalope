@@ -22,17 +22,15 @@ const Post = ({ state, actions, libraries, data }) => {
 
   return data.isReady ? (
     <>
-      {" "}
-      <FeaturedMedia id={post.featured_media} />{" "}
+      <FeaturedMedia id={post.featured_media} />
       <Article className="content-area">
-        {" "}
         <Title
           dangerouslySetInnerHTML={{
             __html: post.title.rendered
           }}
-        />{" "}
-        <Html2React html={post.content.rendered} />{" "}
-      </Article>{" "}
+        />
+        <Html2React html={post.content.rendered} />
+      </Article>
     </>
   ) : null;
 };
