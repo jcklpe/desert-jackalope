@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-
 import { connect, styled } from "frontity";
-// import Link from "./link";
+//JUNK? import Link from "./link";
 import Archive from "./Archive";
 import FeaturedMedia from "./featured-media";
 

@@ -2,12 +2,9 @@ import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "../link";
 import Archive from "../Archive";
-import FeaturedMedia from "../featured-media";
-// import * as palette from "../utilities/variables.js";
+//JUNK? import FeaturedMedia from "../featured-media";
 
 const Page = ({ state, actions, libraries, data }) => {
-  // Get info of current post.
-  //const data = state.source.get(state.router.link);
   // Get the the post.
   const page = state.source[data.type][data.id];
   // Get the html2react component.		  // Prefetch home posts and the list component.
@@ -33,11 +30,12 @@ const Page = ({ state, actions, libraries, data }) => {
 export default connect(Page);
 
 //- CSS
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+//JUNK? not sure if junk. Not currently being used but I forget what I was using this for originally. Commented out. if nothing breaks for awhile then I'll delete
+// const Content = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// `;
 
 const Article = styled.article`
   width: 850px;
@@ -80,73 +78,74 @@ const Author = styled.p`
   display: inline;
 `;
 
-const Body = styled.div`
-  color: rgba(12, 17, 43, 0.8);
-  word-break: break-word;
+//JUNK?
+// const Body = styled.div`
+//   color: rgba(12, 17, 43, 0.8);
+//   word-break: break-word;
 
-  * {
-    max-width: 100%;
-  }
+//   * {
+//     max-width: 100%;
+//   }
 
-  p {
-    line-height: 1.6em;
-  }
+//   p {
+//     line-height: 1.6em;
+//   }
 
-  img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
+//   img {
+//     width: 100%;
+//     object-fit: cover;
+//     object-position: center;
+//   }
 
-  figure {
-    margin: 24px auto;
-    /* next line overrides an inline style of the figure element. */
-    width: 100% !important;
+//   figure {
+//     margin: 24px auto;
+//     /* next line overrides an inline style of the figure element. */
+//     width: 100% !important;
 
-    figcaption {
-      font-size: 0.7em;
-    }
-  }
+//     figcaption {
+//       font-size: 0.7em;
+//     }
+//   }
 
-  iframe {
-    display: block;
-    margin: auto;
-  }
+//   iframe {
+//     display: block;
+//     margin: auto;
+//   }
 
-  blockquote {
-    margin: 16px 0;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-left: 4px solid rgba(12, 17, 43);
-    padding: 4px 16px;
-  }
+//   blockquote {
+//     margin: 16px 0;
+//     background-color: rgba(0, 0, 0, 0.1);
+//     border-left: 4px solid rgba(12, 17, 43);
+//     padding: 4px 16px;
+//   }
 
-  a {
-    text-decoration: none;
-  }
+//   a {
+//     text-decoration: none;
+//   }
 
-  /* WordPress Core Align Classes */
+//   /* WordPress Core Align Classes */
 
-  @media (min-width: 420px) {
-    img.aligncenter,
-    img.alignleft,
-    img.alignright {
-      width: auto;
-    }
+//   @media (min-width: 420px) {
+//     img.aligncenter,
+//     img.alignleft,
+//     img.alignright {
+//       width: auto;
+//     }
 
-    .aligncenter {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
+//     .aligncenter {
+//       display: block;
+//       margin-left: auto;
+//       margin-right: auto;
+//     }
 
-    .alignright {
-      float: right;
-      margin-left: 24px;
-    }
+//     .alignright {
+//       float: right;
+//       margin-left: 24px;
+//     }
 
-    .alignleft {
-      float: left;
-      margin-right: 24px;
-    }
-  }
-`;
+//     .alignleft {
+//       float: left;
+//       margin-right: 24px;
+//     }
+//   }
+// `;

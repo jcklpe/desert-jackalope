@@ -21,9 +21,7 @@ const Theme = ({ state }) => {
     <>
       <Meta />
       <Global styles={globalStyles} />
-
       <Header />
-
       {transitions.map(({ item, props, key }) => {
         const data = state.source.get(item);
         return (
@@ -48,7 +46,8 @@ const globalStyles = css`
   @import url("https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i&display=swap");
 
   :root {
-    --primary: #1f38c5;
+    --primary-heavy: #1f38c5;
+    --primary: #2657eb;
     --snappy: cubic-bezier(0.075, 0.82, 0.165, 1);
     --heavy-snap: cubic-bezier(0.6, -0.28, 0.735, 0.045);
   }
