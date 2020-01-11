@@ -59,6 +59,49 @@ const Article = styled.article`
       color: white;
     }
   }
+
+  div.wp-block-button.resume {
+    display: inline-flex;
+    padding: 15px 40px;
+    line-height: 24px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border: 0px;
+    background: linear-gradient(45deg, var(--primary) 29%, var(--primary) 100%);
+    cursor: pointer;
+    transition: all 1s var(--snappy);
+    * {
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    a {
+      color: white;
+      box-shadow: none;
+      background-image: none !important;
+    }
+    &:hover {
+      background: linear-gradient(45deg, var(--primary) 29%, #7200ff 100%);
+      transition: all 1s var(--snappy);
+    }
+  }
+
+  .wp-block-media-text.has-media-on-the-right {
+    display: flex;
+    flex-direction: row-reverse;
+
+    & > div {
+      width: 50%;
+    }
+    figure {
+      width: 50%;
+      max-height: 60vh;
+      img {
+        max-height: 100%;
+        max-width: 100%;
+      }
+    }
+  }
 `;
 
 const Title = styled.h1`
@@ -77,75 +120,3 @@ const Author = styled.p`
   font-size: 0.9em;
   display: inline;
 `;
-
-//JUNK?
-// const Body = styled.div`
-//   color: rgba(12, 17, 43, 0.8);
-//   word-break: break-word;
-
-//   * {
-//     max-width: 100%;
-//   }
-
-//   p {
-//     line-height: 1.6em;
-//   }
-
-//   img {
-//     width: 100%;
-//     object-fit: cover;
-//     object-position: center;
-//   }
-
-//   figure {
-//     margin: 24px auto;
-//     /* next line overrides an inline style of the figure element. */
-//     width: 100% !important;
-
-//     figcaption {
-//       font-size: 0.7em;
-//     }
-//   }
-
-//   iframe {
-//     display: block;
-//     margin: auto;
-//   }
-
-//   blockquote {
-//     margin: 16px 0;
-//     background-color: rgba(0, 0, 0, 0.1);
-//     border-left: 4px solid rgba(12, 17, 43);
-//     padding: 4px 16px;
-//   }
-
-//   a {
-//     text-decoration: none;
-//   }
-
-//   /* WordPress Core Align Classes */
-
-//   @media (min-width: 420px) {
-//     img.aligncenter,
-//     img.alignleft,
-//     img.alignright {
-//       width: auto;
-//     }
-
-//     .aligncenter {
-//       display: block;
-//       margin-left: auto;
-//       margin-right: auto;
-//     }
-
-//     .alignright {
-//       float: right;
-//       margin-left: 24px;
-//     }
-
-//     .alignleft {
-//       float: left;
-//       margin-right: 24px;
-//     }
-//   }
-// `;

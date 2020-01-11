@@ -322,6 +322,7 @@ const Article = styled.article`
       justify-content: center;
       align-items: center;
       margin: unset !important;
+      padding: 0 !important;
 
       li {
         margin: 15px 15px;
@@ -441,10 +442,10 @@ const Article = styled.article`
 
     &.columns-5 {
       li.blocks-gallery-item {
-        width: 18vw;
+        width: 17vw;
 
         figure {
-          width: 18vw;
+          width: 17vw;
 
           img {
             object-fit: contain;
