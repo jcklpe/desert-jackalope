@@ -2,7 +2,6 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
 import Nav from "./nav";
-// import * as palette from "./utilities/variables";
 
 const Header = ({ state }) => (
   <Container>

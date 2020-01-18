@@ -22,6 +22,7 @@ const Theme = ({ state }) => {
       <Meta />
       <Global styles={globalStyles} />
       <Header />
+
       {transitions.map(({ item, props, key }) => {
         const data = state.source.get(item);
         return (

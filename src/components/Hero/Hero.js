@@ -4,9 +4,9 @@ import { media } from "../utilities/mixins";
 // import Link from "../archive/link";
 // import PropTypes from 'prop-types';
 
-const Hero = props => (
+const Hero = ({ state }) => (
   <Container className="HeroWrapper">
-    <h1>Design X Code</h1>
+    <h1>{state.frontity.description}</h1>
   </Container>
 );
 
@@ -30,4 +30,4 @@ const Container = styled.div`
   }
 `;
 
-export default Hero;
+export default connect(Hero);
