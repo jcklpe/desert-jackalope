@@ -4,17 +4,12 @@ import Link from "../link";
 import FeaturedMedia from "../featured-media";
 
 const ArchiveItem = ({ state, item }) => {
-  const author = state.source.author[item.author];
-  const date = new Date(item.date);
-
   return (
     <section className="case-study-link">
       <Link link={item.link}>
         <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
 
-        {state.theme.featured.showOnList && (
-          <FeaturedMedia id={item.featured_media} />
-        )}
+        <FeaturedMedia id={item.featured_media} />
       </Link>
     </section>
   );

@@ -15,8 +15,7 @@ const Theme = ({ state }) => {
     enter: { opacity: 1 },
     leave: { opacity: 0 }
   });
-  //const data = state.source.get(state.router.link);
-  //TODO: splite Archive into Blog archive and case-study archive
+
   return (
     <>
       <Meta />
@@ -42,6 +41,7 @@ const Theme = ({ state }) => {
 };
 
 export default connect(Theme);
+
 //- GLOBAL STYLES CSS
 const globalStyles = css`
   @import url("https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i&display=swap");
