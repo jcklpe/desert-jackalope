@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
-import Link from "../link";
+import Link from "../Link";
 
 const Pagination = ({ state, actions, libraries }) => {
   const { totalPages } = state.source.get(state.router.link);

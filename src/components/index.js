@@ -1,13 +1,13 @@
 import React from "react";
-import { Global, css, connect, styled, Head } from "frontity";
-import Header from "./header.js";
+import { Global, css, connect, styled } from "frontity";
+import Header from "./Header";
 import Archive from "./Archive";
-import Post from "./post.js";
-import Page404 from "./page404.js";
-import Page from "./Page/Page.js";
-import Loading from "./loading.js";
+import Post from "./Post";
+import Page404 from "./Page404";
+import Page from "./Page";
+import Loading from "./Loading";
 import { useTransition, animated } from "react-spring";
-import Meta from "./meta";
+import Meta from "./Meta";
 
 const Theme = ({ state }) => {
   const transitions = useTransition(state.router.link, link => link, {

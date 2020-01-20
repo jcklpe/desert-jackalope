@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import Link from "../link";
-import FeaturedMedia from "../featured-media";
+import Link from "../Link";
+import FeaturedMedia from "../FeaturedMedia";
 
 const ArchiveItem = ({ state, item }) => {
   return (

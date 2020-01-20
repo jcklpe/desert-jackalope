@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 
 import { connect, styled } from "frontity";
 //JUNK? import Link from "./link";
-import Archive from "./Archive";
-import FeaturedMedia from "./featured-media";
+import Archive from "../Archive";
+import FeaturedMedia from "../FeaturedMedia";
 
 // import * as palette from "../utilities/variables.js";
-import { media } from "./utilities/mixins";
+import { media } from "../utilities/mixins";
 
 const Post = ({ state, actions, libraries, data }) => {
   // Get the the post.

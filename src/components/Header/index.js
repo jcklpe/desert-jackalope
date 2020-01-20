@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import Link from "./link";
+import Link from "../Link";
 import Nav from "./nav";
 
 const Header = ({ state }) => (

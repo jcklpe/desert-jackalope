@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import ArchiveItem from "./archive-item";
-import Hero from "../Hero/Hero";
+import Hero from "../Hero";
 import Pagination from "./pagination";
 import { media } from "../utilities/mixins";
 

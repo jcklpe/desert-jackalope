@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import Link from "./link";
+import Link from "../Link";
 // import * as palette from "./utilities/variables";
 
 const Nav = ({ state }) => (
