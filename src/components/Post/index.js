@@ -14,6 +14,9 @@ const Post = ({ state, actions, libraries, data }) => {
   // Get the html2react component.		  // Prefetch home posts and the list component.
   const Html2React = libraries.html2react.Component;
 
+  const date = new Date(post.date);
+  const isBlog = state.theme.blogmode;
+
   // Prefetch home posts and the archive component.
   useEffect(() => {
     actions.source.fetch("/");
@@ -31,6 +34,7 @@ const Post = ({ state, actions, libraries, data }) => {
             __html: post.title.rendered
           }}
         />{" "}
+        {isBlog && <p>{date.toDateString()}</p>}
         <Html2React html={post.content.rendered} />{" "}
       </Article>{" "}
     </>
