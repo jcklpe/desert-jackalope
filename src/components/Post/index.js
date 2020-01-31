@@ -15,7 +15,7 @@ const Post = ({ state, actions, libraries, data }) => {
   const Html2React = libraries.html2react.Component;
 
   const date = new Date(post.date);
-  const isBlog = state.theme.blogmode;
+  const isBlog = state.theme.isBlog;
 
   // Prefetch home posts and the archive component.
   useEffect(() => {
@@ -66,7 +66,7 @@ const Article = styled.article`
   z-index: 5;
   position: relative;
   background: white;
-  color: rgba(12, 17, 43, 0.8);
+  color: var(--dark80);
   word-break: break-word;
 
   * {
@@ -185,7 +185,7 @@ const Article = styled.article`
       background-image: linear-gradient(
         45deg,
         var(--primary) 29%,
-        #7200ff 100%
+        var(--accent) 100%
       );
       background-repeat: no-repeat;
       background-size: 120% 0.2em;
@@ -207,7 +207,7 @@ const Article = styled.article`
   /*//- Block Quote */
   blockquote {
     background-color: rgba(0, 0, 0, 0.1);
-    border-left: 4px solid rgba(12, 17, 43);
+    border-left: 4px solid var(--dark);
     padding: 4px 16px;
     margin: 30px 22vw 0;
 

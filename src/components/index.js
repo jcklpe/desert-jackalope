@@ -8,6 +8,10 @@ import Page from "./Page";
 import Loading from "./Loading";
 import { useTransition, animated } from "react-spring";
 import Meta from "./Meta";
+import { colors } from "../theme";
+import Footer from "./Footer";
+//import desertJackalope from "../index";
+//const primaryColor = desertJackalope.theme.colors.primary.default;
 
 const Theme = ({ state }) => {
   const transitions = useTransition(state.router.link, link => link, {
@@ -36,6 +40,7 @@ const Theme = ({ state }) => {
           </animated.div>
         );
       })}
+      {/* <Footer /> */}
     </>
   );
 };
@@ -43,14 +48,30 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 //- GLOBAL STYLES CSS
+
+//- Color vars
+const primaryColor = colors.primary.default;
+const heavyprimaryColor = colors.primary.heavy;
+const accentColor = colors.accent;
+const darkColor = colors.dark[100];
+const darkColor90 = colors.dark[90];
+const darkColor80 = colors.dark[80];
+const darkColor30 = colors.dark[30];
+
+// set global styles
 const globalStyles = css`
   @import url("https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i&display=swap");
 
   :root {
-    --primary-heavy: #1f38c5;
-    --primary: #2657eb;
+    --primary-heavy: ${heavyprimaryColor};
+    --primary: ${primaryColor};
     --snappy: cubic-bezier(0.075, 0.82, 0.165, 1);
     --heavy-snap: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    --accent: ${accentColor};
+    --dark: ${darkColor};
+    --dark90: ${darkColor90};
+    --dark80: ${darkColor80};
+    --dark30: ${darkColor30};
   }
 
   body {

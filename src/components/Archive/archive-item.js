@@ -5,7 +5,7 @@ import FeaturedMedia from "../FeaturedMedia";
 
 const ArchiveItem = ({ state, item }) => {
   const date = new Date(item.date);
-  const isBlog = state.theme.blogmode;
+  const isBlog = state.theme.isBlog;
   return (
     <section className="case-study-link">
       <Link link={item.link}>
@@ -26,12 +26,13 @@ export default connect(ArchiveItem);
 const Title = styled.h1`
   font-size: 4rem;
   position: relative;
+  display: inline;
   z-index: 10;
   font-weight: 700;
-  color: rgba(12, 17, 43);
+  color: black;
   margin: 0;
   padding-top: 24px;
-  margin-bottom: -40px;
+  /* margin-bottom: -40px; */
   padding: 25px 25px 0 25px;
   box-sizing: border-box;
   vertical-align: bottom;

@@ -14,7 +14,7 @@ In the frontity framework, settings are set in the root of the node server using
 
 These settings basically define the initial global state. I've added the following settings to add additional functionality to the theme.
 
-`state.theme.blogmode` is a boolean setting denoting "blog mode" (true) or "case study mode" (false).
+`state.theme.isBlog` is a boolean setting denoting "blog mode" (true) or "case study mode" (false).
 
 Blog mode versus case study mode changes the way that posts and their archives are presented.
 

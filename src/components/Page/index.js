@@ -45,7 +45,11 @@ const Article = styled.article`
   background-color: white;
   /* background-color: #efedec; */
   a {
-    background-image: linear-gradient(45deg, var(--primary) 29%, #7200ff 100%);
+    background-image: linear-gradient(
+      45deg,
+      var(--primary) 29%,
+      var(--accent) 100%
+    );
     background-repeat: no-repeat;
     background-size: 120% 0.2em;
     background-position: -5px 100%;
@@ -81,7 +85,11 @@ const Article = styled.article`
       background-image: none !important;
     }
     &:hover {
-      background: linear-gradient(45deg, var(--primary) 29%, #7200ff 100%);
+      background: linear-gradient(
+        45deg,
+        var(--primary) 29%,
+        var(--accent) 100%
+      );
       transition: all 1s var(--snappy);
     }
   }
@@ -116,7 +124,7 @@ const StyledLink = styled(Link)`
 `;
 
 const Author = styled.p`
-  color: rgba(12, 17, 43, 0.9);
+  color: var(--dark90);
   font-size: 0.9em;
   display: inline;
 `;

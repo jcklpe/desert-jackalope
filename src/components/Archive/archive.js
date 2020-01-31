@@ -8,7 +8,7 @@ const Archive = ({ state, data }) => {
 
   let archiveComponent;
 
-  if (state.theme.blogmode) {
+  if (state.theme.isBlog) {
     archiveComponent = <BlogArchive data={data} />;
   } else {
     archiveComponent = <CaseStudyArchive data={data} />;

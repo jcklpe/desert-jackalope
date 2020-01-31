@@ -12,10 +12,12 @@ const desertJackalope = {
     // State is where the packages store their default settings and other
     // relevant state. It is scoped to the "theme" namespace.
     theme: {
-      menu: [],
-      featured: {
-        showOnList: true,
-        showOnPost: true
+      isBlog: false,
+      colors: {
+        primary: {
+          default: "#2657eb",
+          heavy: "#1f38c5"
+        }
       }
     }
   },

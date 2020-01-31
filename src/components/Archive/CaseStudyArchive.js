@@ -29,7 +29,7 @@ export default connect(CaseStudyArchiveComponent);
 const TaxonomyTitle = styled.h3`
   font-weight: 300;
   text-transform: capitalize;
-  color: rgba(12, 17, 43, 0.9);
+  color: var(--dark90);
 `;
 
 const Container = styled.section`
