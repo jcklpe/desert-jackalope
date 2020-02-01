@@ -40,6 +40,6 @@ I'm trying to follow the [AirBnB recommendations](https://github.com/airbnb/java
     - [ ] Add flexibility in for having both case studies and blog on the same website (basically set up taxonomy to be useful for styling presentation for project versus regular blog posts etc)
   - [x] get rid of hero section on frontpage
   - [x] add date to archive and post
-  - [ ] add excerpt to archive (having trouble with bug)
+  - [x] add excerpt to archive
   - [ ] change blog archive display on frontpage
   - [ ] create page for posts tagged as "projects"
