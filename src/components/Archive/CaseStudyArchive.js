@@ -3,7 +3,7 @@ import { connect, styled } from "frontity";
 import ArchiveItem from "./archive-item";
 import Hero from "../Hero";
 import Pagination from "./pagination";
-import { media } from "../utilities/mixins";
+import { media } from "../../mixins";
 
 const CaseStudyArchiveComponent = ({ state, data }) => {
   return (
@@ -37,7 +37,7 @@ const Container = styled.section`
   list-style: none;
 
   //- Case Study
-  section.case-study-link {
+  section.post-link {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -48,7 +48,7 @@ const Container = styled.section`
   }
 
   //- Case Study 1-3-5-7
-  section.case-study-link:nth-of-type(odd) {
+  section.post-link:nth-of-type(odd) {
     margin-right: 30vw;
     margin-left: 0;
 
@@ -88,7 +88,7 @@ const Container = styled.section`
     }
   }
   //- Case Study 2-4-6-8
-  section.case-study-link:nth-of-type(even) {
+  section.post-link:nth-of-type(even) {
     margin-left: 30vw;
     margin-right: 0;
     ${media.mobile`

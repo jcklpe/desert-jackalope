@@ -1,8 +1,6 @@
 import React from "react";
 import { connect, styled } from "frontity";
-import { media } from "../utilities/mixins";
-// import Link from "../archive/link";
-// import PropTypes from 'prop-types';
+import { media } from "../../mixins";
 
 const Hero = ({ state }) => (
   <Container className="HeroWrapper">

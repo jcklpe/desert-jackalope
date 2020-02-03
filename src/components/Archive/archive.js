@@ -6,15 +6,15 @@ import CaseStudyArchive from "./CaseStudyArchive";
 const Archive = ({ state, data }) => {
   // check whether or not blog or case study presentation
 
-  let archiveComponent;
-
-  if (state.theme.isBlog) {
-    archiveComponent = <BlogArchive data={data} />;
-  } else {
-    archiveComponent = <CaseStudyArchive data={data} />;
-  }
-
-  return <>{archiveComponent}</>;
+  return (
+    <>
+      {state.theme.isBlog ? (
+        <BlogArchive data={data} />
+      ) : (
+        <CaseStudyArchive data={data} />
+      )}
+    </>
+  );
 };
 
 export default connect(Archive);

@@ -2,20 +2,27 @@ import React from "react";
 import { connect, styled } from "frontity";
 import Link from "../Link";
 import FeaturedMedia from "../FeaturedMedia";
+import { dateFromItem } from "../../utilities";
 
 const ArchiveItem = ({ state, item }) => {
-  const date = new Date(item.date);
-  const isBlog = state.theme.isBlog;
   return (
-    <section className="case-study-link">
+    <section className="post-link">
       <Link link={item.link}>
         <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
-        {isBlog && <p>{date.toDateString()}</p>}
+
+        {/* //TODO: This seems like it should be separated into a separate component */}
+        {state.theme.isBlog && <p className="date">{dateFromItem(item)}</p>}
+
         <FeaturedMedia id={item.featured_media} />
+
+        {/* //TODO: This too  */}
+        {state.theme.isBlog && item.excerpt && (
+          <Excerpt
+            className="excerpt"
+            dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }}
+          />
+        )}
       </Link>
-      {isBlog && item.excerpt && (
-        <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
-      )}
     </section>
   );
 };

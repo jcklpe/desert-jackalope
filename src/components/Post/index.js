@@ -1,12 +1,8 @@
 import React, { useEffect } from "react";
-
 import { connect, styled } from "frontity";
-//JUNK? import Link from "./link";
 import Archive from "../Archive";
 import FeaturedMedia from "../FeaturedMedia";
-
-// import * as palette from "../utilities/variables.js";
-import { media } from "../utilities/mixins";
+import { media } from "../../mixins";
 
 const Post = ({ state, actions, libraries, data }) => {
   // Get the the post.
@@ -15,7 +11,6 @@ const Post = ({ state, actions, libraries, data }) => {
   const Html2React = libraries.html2react.Component;
 
   const date = new Date(post.date);
-  const isBlog = state.theme.isBlog;
 
   // Prefetch home posts and the archive component.
   useEffect(() => {
@@ -34,7 +29,7 @@ const Post = ({ state, actions, libraries, data }) => {
             __html: post.title.rendered
           }}
         />{" "}
-        {isBlog && <p>{date.toDateString()}</p>}
+        {state.theme.isBlog && <p>{date.toDateString()}</p>}
         <Html2React html={post.content.rendered} />{" "}
       </Article>{" "}
     </>

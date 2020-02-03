@@ -2,19 +2,18 @@ import React from "react";
 import { connect, styled } from "frontity";
 import ArchiveItem from "./archive-item";
 import Pagination from "./pagination";
-import { media } from "../utilities/mixins";
+import { media } from "../../mixins";
 
 const BlogArchiveComponent = ({ state, data }) => {
   return (
     <>
       <Container className="archive-container">
-        {/* If the archive is a taxonomy, we render a title. */}
+        {/*  If the archive is a taxonomy, we render a title. */}
         {data.isTaxonomy && (
-          <TaxonomyTitle>
+          <TaxonomyTitle className="taxonomy-title">
             {data.taxonomy}: {state.source[data.taxonomy][data.id].name}
           </TaxonomyTitle>
         )}
-
         {/* Iterate over the items of the archive. */}
         {data.items.map(({ type, id }) => {
           const item = state.source[type][id];
@@ -31,105 +30,60 @@ export default connect(BlogArchiveComponent);
 
 //- CSS
 
-const TaxonomyTitle = styled.h3`
-  font-weight: 300;
-  text-transform: capitalize;
-  color: var(--dark90);
-`;
-
 const Container = styled.section`
   margin: 0;
   list-style: none;
+  width: 100%;
 
-  //- Case Study
-  section.case-study-link {
+  a {
+    width: 100%;
+  }
+
+  //- Blog archive
+  section.post-link {
     display: flex;
-    flex-direction: column;
     position: relative;
-    padding-top: 200px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      position: absolute;
+      background: var(--dark);
+      color: white;
+    }
+
+    h3 {
+      font-weight: 300;
+      text-transform: capitalize;
+      color: var(--dark90);
+    }
+
+    p.date {
+      color: white;
+      z-index: 100;
+      position: absolute;
+    }
+
+    p.excerpt {
+      position: absolute;
+      background: white;
+      padding: 50px 100px;
+      z-index: 5;
+      bottom: 50px;
+    }
+
     img {
       box-sizing: border-box;
+      width: 100%;
     }
-  }
 
-  //- Case Study 1-3-5-7
-  section.case-study-link:nth-of-type(odd) {
-    margin-right: 30vw;
-    margin-left: 0;
-
-    ${media.mobile`
-      margin-left 2vw;
-      margin-right: 0vw;
-    `};
-
-    a {
-      display: flex;
-      flex-direction: column;
-
-      h1 {
-        margin-right: 0px;
-        transition: all 1.3s var(--snappy);
-        ${media.mobile`
-          font-size: 2rem;
-          padding-left: 2vw;
-        `};
-      }
-      img {
-        padding-left: 100px;
-        transition: all 1.5s var(--snappy);
-      }
-      &:hover,
-      &:active,
-      &:focus {
-        img {
-          transform: translate(-7vw, 0px);
-          transition: all 0.25s var(--snappy);
-        }
-        h1 {
-          transform: translate(50px, 0px);
-          transition: all 0.75s var(--snappy);
-        }
-      } /*end of hover */
-    }
-  }
-  //- Case Study 2-4-6-8
-  section.case-study-link:nth-of-type(even) {
-    margin-left: 30vw;
-    margin-right: 0;
-    ${media.mobile`
-      margin-right 2vw;
-      margin-left: 0vw;
-    `};
-    a {
-      display: flex;
-      flex-direction: column;
-      transition: all 0.25s var(--snappy);
-      h1 {
-        align-self: flex-end;
-        text-align: right;
-        margin-right: 0px;
-        transition: all 1.3s var(--snappy);
-        transform: translate(0px, 0px);
-        ${media.mobile`
-          font-size: 2rem;
-        `};
-      }
-      img {
-        padding-right: 100px;
-        transform: translate(0px, 0px);
-        transition: all 1.5s var(--snappy);
-      }
-      &:hover,
-      &:active,
-      &:focus {
-        img {
-          transform: translate(7vw, 0px);
-          transition: all 0.25s var(--snappy);
-        }
-        h1 {
-          transform: translate(-50px, 0px);
-          transition: all 0.75s var(--snappy);
-        }
+    &:first-of-type {
+      width: 100%;
+      p.excerpt {
+        bottom: 50px;
+        width: 40%;
+        left: 40%;
       }
     }
   }
