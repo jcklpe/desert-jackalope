@@ -72,6 +72,11 @@ const globalStyles = css`
     --dark90: ${darkColor90};
     --dark80: ${darkColor80};
     --dark30: ${darkColor30};
+
+    *::selection {
+      background: var(--primary);
+      color: white;
+    }
   }
 
   body {
