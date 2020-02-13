@@ -35,7 +35,9 @@ I'm trying to follow the [AirBnB recommendations](https://github.com/airbnb/java
   - [ ] build frontity component to correspond
 - [ ] add parallax
 - [ ] add footer while maintaining the transition effect
+- [x] componentize out page-content styles for easier management
 - [ ] Blog compatible checklist
+
   - [x] add logic to frontity settings state to switch on and off style for blog versus website (or perhaps handle this via taxonomy?)
     - [ ] Add flexibility in for having both case studies and blog on the same website (basically set up taxonomy to be useful for styling presentation for project versus regular blog posts etc)
   - [x] get rid of hero section on frontpage
@@ -45,3 +47,7 @@ I'm trying to follow the [AirBnB recommendations](https://github.com/airbnb/java
   - [ ] fix weird dangerouslySetHTML issue? I hate the syntax of it at least
   - [ ] change blog archive display on frontpage
   - [ ] create page for posts tagged as "projects"
+
+  ## License
+
+  licensed under [Cooperative Work License v 1.0](https://github.com/jcklpe/cooperative-work-license/blob/master/LICENSE.md)
