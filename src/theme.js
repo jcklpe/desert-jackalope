@@ -12,4 +12,23 @@ const colors = {
   accent: "#7200ff"
 };
 
-export { colors };
+//- Color vars
+const primaryColor = colors.primary.default;
+const heavyprimaryColor = colors.primary.heavy;
+const accentColor = colors.accent;
+const darkColor = colors.dark[100];
+const darkColor90 = colors.dark[90];
+const darkColor80 = colors.dark[80];
+const darkColor30 = colors.dark[30];
+
+//- Exports
+export {
+  colors,
+  primaryColor,
+  heavyprimaryColor,
+  accentColor,
+  darkColor,
+  darkColor90,
+  darkColor80,
+  darkColor30
+};

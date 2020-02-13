@@ -8,10 +8,16 @@ import Page from "./Page";
 import Loading from "./Loading";
 import { useTransition, animated } from "react-spring";
 import Meta from "./Meta";
-import { colors } from "../theme";
-import Footer from "./Footer";
-//import desertJackalope from "../index";
-//const primaryColor = desertJackalope.theme.colors.primary.default;
+import {
+  primaryColor,
+  heavyprimaryColor,
+  accentColor,
+  darkColor,
+  darkColor90,
+  darkColor80,
+  darkColor30
+} from "../theme";
+//TODO: import Footer from "./Footer";
 
 const Theme = ({ state }) => {
   const transitions = useTransition(state.router.link, link => link, {
@@ -48,15 +54,6 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 //- GLOBAL STYLES CSS
-
-//- Color vars
-const primaryColor = colors.primary.default;
-const heavyprimaryColor = colors.primary.heavy;
-const accentColor = colors.accent;
-const darkColor = colors.dark[100];
-const darkColor90 = colors.dark[90];
-const darkColor80 = colors.dark[80];
-const darkColor30 = colors.dark[30];
 
 // set global styles
 const globalStyles = css`
