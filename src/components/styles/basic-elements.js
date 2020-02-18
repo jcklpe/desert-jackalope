@@ -68,6 +68,8 @@ const basicElements = css`
 
   hr {
     margin-top: 50px;
+    margin-bottom: 50px;
+    width: 70%;
   }
 
   img {

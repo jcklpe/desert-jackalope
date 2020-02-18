@@ -22,27 +22,20 @@ const Post = ({ state, actions, libraries, data }) => {
 
   return data.isReady ? (
     <>
-      {" "}
-      <FeaturedMedia id={post.featured_media} />{" "}
+      <FeaturedMedia id={post.featured_media} />
+
       <Article
         css={css`
           ${fakePaperTop};
         `}
         className="content-area"
       >
-        {" "}
-        <Title
-          dangerouslySetInnerHTML={{
-            __html: post.title.rendered
-          }}
-        />{" "}
+        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
         {state.theme.isBlog && <p>{date.toDateString()}</p>}
-        <Html2React html={post.content.rendered} />{" "}
-      </Article>{" "}
+        <Html2React html={post.content.rendered} />
+      </Article>
     </>
   ) : null;
 };
 
 export default connect(Post);
-
-//- 𝗖𝗦𝗦

@@ -1,23 +1,27 @@
 import React from "react";
 import { connect, styled } from "frontity";
+import NewsletterForm from "./newsletter-form";
+import Footerlinks from "./footer-links";
 
 const Footer = ({ state }) => (
   <Container className="Footer">
-    <br />
-    <br />
-    <h1>
-      fdjkslajfdklasjfkldjaskfldjaklfjkdlasjfkdlasjfkldjsakfljdkalfjkldasjfkldjasklfjdsklafj
-    </h1>
+    {state.theme.newsletterURL ? (
+      <NewsletterForm className="newsletter-form" />
+    ) : null}
+
+    <Footerlinks className="footer-links" />
   </Container>
 );
 
-const Container = styled.div`
-  h1 {
-    margin-top: -2rem;
-    font-size: 4rem;
-    text-align: center;
-    position: absolute;
-    z-index: 100;
-  }
+const Container = styled.footer`
+  width: 100%;
+  padding: 25px 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export default connect(Footer);

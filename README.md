@@ -34,7 +34,7 @@ I'm trying to follow the [AirBnB recommendations](https://github.com/airbnb/java
   - [ ] build gutenberg component
   - [ ] build frontity component to correspond
 - [ ] add parallax
-- [ ] add footer while maintaining the transition effect
+- [x] add footer while maintaining the transition effect
 - [x] componentize out page-content styles for easier management
 - [ ] Blog compatible checklist
 
@@ -43,7 +43,7 @@ I'm trying to follow the [AirBnB recommendations](https://github.com/airbnb/java
   - [x] get rid of hero section on frontpage
   - [x] add date to archive and post
   - [x] add excerpt to archive
-  - [ ] figure out how to part out additional components without error
+  - [x] figure out how to part out additional components without error
   - [ ] fix weird dangerouslySetHTML issue? I hate the syntax of it at least
   - [ ] change blog archive display on frontpage
   - [ ] create page for posts tagged as "projects"

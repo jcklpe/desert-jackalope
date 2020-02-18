@@ -17,7 +17,7 @@ import {
   darkColor80,
   darkColor30
 } from "../theme";
-//TODO: import Footer from "./Footer";
+import Footer from "./Footer";
 
 const Theme = ({ state }) => {
   const transitions = useTransition(state.router.link, link => link, {
@@ -42,11 +42,11 @@ const Theme = ({ state }) => {
                 (data.isPage && <Page data={data} />) ||
                 (data.isPostType && <Post data={data} />) ||
                 (data.is404 && <Page404 />)}
+              <Footer className="footer" />
             </Absolute>
           </animated.div>
         );
       })}
-      {/* <Footer /> */}
     </>
   );
 };
