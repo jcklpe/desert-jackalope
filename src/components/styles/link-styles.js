@@ -3,7 +3,6 @@ import { media } from "../../mixins";
 
 const linkStyles = css`
   /*//- Links */
-
   p {
     a {
       background-image: linear-gradient(

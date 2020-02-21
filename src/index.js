@@ -1,5 +1,6 @@
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
+import { css, connect, styled } from "frontity";
 
 const desertJackalope = {
   name: "desert-jackalope",
@@ -21,10 +22,10 @@ const desertJackalope = {
       },
       newsletterURL:
         "https://the-jackalope.us8.list-manage.com/subscribe/post?u=7fc8ae244460f6dd1c74dd7bf&amp;id=74ff6c880b",
-      footerlinks: {
-        github: "https://github.com/jcklpe",
-        blog: "https://www.jackalope.tech"
-      }
+      footerlinks: [
+        { name: "github", href: "https://github.com/jcklpe" },
+        { name: "blog", href: "https://www.jackalope.tech" }
+      ]
     }
   },
   // Actions are functions that modify the state or deal with other parts of
@@ -41,4 +42,4 @@ const desertJackalope = {
   }
 };
 
-export default desertJackalope;
+export default connect(desertJackalope);
