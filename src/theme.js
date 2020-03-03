@@ -9,7 +9,8 @@ const colors = {
     80: "rgba(12, 17, 43, 0.8)",
     30: "rgba(12, 17, 43, 0.3)"
   },
-  accent: "#7200ff"
+  accent: "#7200ff",
+  test: "green"
 };
 
 //- Color vars

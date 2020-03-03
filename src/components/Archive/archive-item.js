@@ -5,23 +5,18 @@ import FeaturedMedia from "../FeaturedMedia";
 import { dateFromItem } from "../../utilities";
 
 const ArchiveItem = ({ state, item, libraries }) => {
-  const Html2React = libraries.html2react.Component;
+  const Excerpt = libraries.html2react.Component;
   return (
     <section className="post-link">
       <Link link={item.link}>
         <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
 
-        {/* //TODO: This seems like it should be separated into a separate component */}
         {state.theme.isBlog && <p className="date">{dateFromItem(item)}</p>}
 
         <FeaturedMedia id={item.featured_media} />
 
-        {/* //TODO: This too  */}
         {state.theme.isBlog && item.excerpt && (
-          <Html2React html={item.excerpt.rendered} />
-          // <Excerpt key={item.index} className="excerpt">
-          //   {item.excerpt.textContent}
-          // </Excerpt>
+          <Excerpt html={item.excerpt.rendered} />
         )}
       </Link>
     </section>

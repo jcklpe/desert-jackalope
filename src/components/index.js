@@ -18,9 +18,6 @@ import {
   darkColor30
 } from "../theme";
 import Footer from "./Footer";
-//TODO: trying to get this to work
-// import desertJackalope from "../index";
-// const primeColor = desertJackalope.state.theme.colors.primary.default;
 
 const Theme = ({ state }) => {
   const transitions = useTransition(state.router.link, link => link, {
