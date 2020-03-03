@@ -14,12 +14,6 @@ const desertJackalope = {
     // relevant state. It is scoped to the "theme" namespace.
     theme: {
       isBlog: false,
-      colors: {
-        primary: {
-          default: "#2657eb",
-          heavy: "#1f38c5"
-        }
-      },
       newsletterURL:
         "https://the-jackalope.us8.list-manage.com/subscribe/post?u=7fc8ae244460f6dd1c74dd7bf&amp;id=74ff6c880b",
       footerlinks: [
@@ -42,4 +36,4 @@ const desertJackalope = {
   }
 };
 
-export default connect(desertJackalope);
+export default desertJackalope;

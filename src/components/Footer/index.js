@@ -18,8 +18,8 @@ const Container = styled.footer`
   padding: 25px 50px;
   padding-left: 50px;
   padding-right: 50px;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 200px;
+  margin-bottom: 200px;
   display: flex;
   justify-content: center;
   align-items: center;

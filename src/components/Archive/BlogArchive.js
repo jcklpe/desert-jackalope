@@ -34,56 +34,79 @@ const Container = styled.section`
   margin: 0;
   list-style: none;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
-  a {
-    width: 100%;
-  }
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 
-  //- Blog archive
   section.post-link {
-    display: flex;
+    /* display: flex; */
     position: relative;
-    width: 100%;
+    /* width: 50%;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    flex: auto;
+    min-width: 250px;
 
-    h1 {
-      position: absolute;
-      background: var(--dark);
-      color: white;
-    }
-
-    h3 {
-      font-weight: 300;
-      text-transform: capitalize;
-      color: var(--dark90);
-    }
-
-    p.date {
-      color: white;
-      z-index: 100;
-      position: absolute;
-    }
-
-    p.excerpt {
-      position: absolute;
-      background: white;
-      padding: 50px 100px;
-      z-index: 5;
-      bottom: 50px;
-    }
-
-    img {
-      box-sizing: border-box;
+    a {
       width: 100%;
-    }
+      height: 100%;
+      display: flex;
+      h1 {
+        /* position: absolute; */
+        background: var(--dark);
+        color: white;
+        font-size: 2rem;
+      }
 
-    &:first-of-type {
-      width: 100%;
-      p.excerpt {
+      img {
+        box-sizing: border-box;
+        width: 100%;
+        position: absolute;
+        object-fit: cover;
+      }
+
+      h3 {
+        font-weight: 300;
+        text-transform: capitalize;
+        color: var(--dark90);
+      }
+
+      p.date {
+        color: white;
+        z-index: 100;
+        /* position: absolute; */
+      }
+
+      /* //TODO: would be nice to get this identified by classname and not by position */
+      /* excerpt */
+      p:nth-of-type(2) {
+        /* position: absolute; */
+        background: white;
+        padding: 50px 100px;
+        z-index: 5;
         bottom: 50px;
         width: 40%;
-        left: 40%;
+        margin: 50px;
+      }
+
+      /* //- Top story */
+      &:first-of-type {
+        width: 100%;
+        h1 {
+          font-size: 4em;
+        }
+        p.excerpt {
+          bottom: 50px;
+          width: 40%;
+          left: 40%;
+        }
+      } /* End of top story */
+
+      &:nth-of-type(2) {
       }
     }
   }

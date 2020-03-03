@@ -4,7 +4,8 @@ import Link from "../Link";
 import FeaturedMedia from "../FeaturedMedia";
 import { dateFromItem } from "../../utilities";
 
-const ArchiveItem = ({ state, item }) => {
+const ArchiveItem = ({ state, item, libraries }) => {
+  const Html2React = libraries.html2react.Component;
   return (
     <section className="post-link">
       <Link link={item.link}>
@@ -17,10 +18,10 @@ const ArchiveItem = ({ state, item }) => {
 
         {/* //TODO: This too  */}
         {state.theme.isBlog && item.excerpt && (
-          <Excerpt
-            className="excerpt"
-            dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }}
-          />
+          <Html2React html={item.excerpt.rendered} />
+          // <Excerpt key={item.index} className="excerpt">
+          //   {item.excerpt.textContent}
+          // </Excerpt>
         )}
       </Link>
     </section>
