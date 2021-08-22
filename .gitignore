@@ -62,3 +62,6 @@ typings/
 
 # MAc stuff
 .DS_Store
+
+# preventing package-lock
+package-lock.json
